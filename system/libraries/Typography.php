@@ -56,7 +56,7 @@ class CI_Typography {
 	public $block_elements = 'address|blockquote|div|dl|fieldset|form|h\d|hr|noscript|object|ol|p|pre|script|table|ul';
 
 	/**
-	 * Elements that should not have <p> and <br /> tags within them.
+	 * Elements that should not have <p> and <br/> tags within them.
 	 *
 	 * @var string
 	 */
@@ -364,7 +364,7 @@ class CI_Typography {
 		$str = str_replace("\n\n", "</p>\n\n<p>", $str);
 
 		// Convert single spaces to <br /> tags
-		$str = preg_replace("/([^\n])(\n)([^\n])/", '\\1<br />\\2\\3', $str);
+		$str = preg_replace("/([^\n])(\n)([^\n])/", '\\1<br/>\\2\\3', $str);
 
 		// Wrap the whole enchilada in enclosing paragraphs
 		if ($str !== "\n")

@@ -60,9 +60,9 @@ $hal = $this->uri->segment(1);
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li class="<?=($hal=='beranda')?'active':'';?>"><a href="<?php echo base_url('beranda') ?>">Beranda</a></li>
-                <li class="<?=($hal=='produk')?'active':'';?>"><a href="<?php echo base_url('produk') ?>">Produk</a></li>
-                <li class="<?=($hal=='artikel')?'active':'';?>"><a href="<?php echo base_url('artikel') ?>">Artikel</a></li>
+                <li class="<?=($hal=='member/beranda')?'active':'';?>"><a href="<?php echo base_url('member/beranda') ?>">Beranda</a></li>
+                <li class="<?=($hal=='member/produk')?'active':'';?>"><a href="<?php echo base_url('member/produk') ?>">Produk</a></li>
+                <li class="<?=($hal=='member/artikel')?'active':'';?>"><a href="<?php echo base_url('member/artikel') ?>">Artikel</a></li>
                 <li class="drop-down"><a href="#">Tentang Kami</a>
                     <ul>
                         <li><a href="#">Info Sistem</a></li>

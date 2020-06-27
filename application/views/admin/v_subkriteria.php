@@ -236,9 +236,6 @@
 <?php endforeach;?>
 
 
-
-
-
 <?php
      foreach($data->result_array() as $i):
         $id_subkriteria =$i['id_subkriteria'];

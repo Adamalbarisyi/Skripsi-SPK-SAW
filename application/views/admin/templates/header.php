@@ -93,7 +93,7 @@
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url('admin/data-alternatif') ?>" class="waves-effect">
+                            <a href="<?php echo base_url('admin/alternatif') ?>" class="waves-effect">
                                 <i class="mdi mdi-database"></i>
                                 <span> Data Alternatif </span>
                             </a>

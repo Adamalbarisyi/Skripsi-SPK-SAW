@@ -109,7 +109,7 @@ foreach ($data->result_array() as $i) :
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title mt-0" id="myModalLabel">Detail Artikel</h5>
-              
+
             </div>
             <div class="modal-body">
                 <div class="mt-4 mb-4 ml-4">
@@ -119,11 +119,11 @@ foreach ($data->result_array() as $i) :
 
                 <div class="text-center">
                     <img class="img-fluid  " alt="100x100"
-                        src="<?php echo base_url() . 'upload/artikel/'. $foto_artikel; ?>" data-holder-rendered="true">
+                        src="<?php echo base_url() . 'uploads/artikel/'. $foto_artikel; ?>" data-holder-rendered="true">
                 </div>
 
                 <div class="m-4">
-                    <?php echo ($isi_artikel)?>
+                    <?php echo $this->typography->auto_typography($isi_artikel)?>
                 </div>
 
 
@@ -151,9 +151,9 @@ foreach ($data->result_array() as $i) :
 ?>
 
 <!-- EDIT MODAL -->
-<div id="modal-edit<?php echo $id_kriteria; ?>" class="modal fade" tabindex="-1" role="dialog"
+<div id="modal-edit<?php echo $id_artikel;?>" class="modal fade" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title mt-0" id="myModalLabel">Edit Data</h5>
@@ -161,40 +161,38 @@ foreach ($data->result_array() as $i) :
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url() . 'admin/kriteria/update' ?>" method="post"
+            <form action="<?php echo base_url() . 'admin/artikel/update/'.$id_artikel;?>" method="post"
                 enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="hidden" name="id_kriteria" value="<?php echo $id_kriteria; ?>" />
-                        <label>Nama Kriteria</label>
-                        <input type="text" class="form-control" name="nama_kriteria"
-                            value="<?php echo $nama_kriteria; ?>" required />
+                        <label>Judul Artikel</label>
+                        <input type="hidden" name="id_Artikel" value="<?php echo $id_artikel;?>" />
+                        <input type="text" class="form-control" name="judul_artikel"
+                            value="<?php echo $judul_artikel;?>" required />
                     </div>
 
                     <div class="form-group">
-                        <label>Jenis Kriteria</label>
-                        <div class="form-group">
-
-                            <select class="form-control" name="tipe_kriteria" required>
-                                <option value="">-PILIH-</option>
-
-                                <?php if ($tipe_kriteria == 'Cost') : ?>
-                                <option value="Cost" selected>Cost</option>
-                                <option value="Benefit">Benefit</option>
-
-                                <?php else : ($tipe_kriteria == 'Benefit') ?>
-                                <option value="Cost">Cost</option>
-                                <option value="Benefit" selected>Benefit</option>
-                                <?php endif; ?>
-                            </select>
+                        <label for=isi_artikel>Ringkasan berita</label>
+                        <div>
+                            <textarea id="elm1" name="isi_artikel" cols=”45″ rows=”5″
+                                required><?php echo $isi_artikel;?></textarea>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Nilai Bobot</label>
-                        <div>
-                            <input type="number" name="bobot_kriteria" class="form-control" step="0.1" min="0.1"
-                                max="10" value="<?php echo $bobot_kriteria; ?>" required />
+                    <div class="form-group mb-2">
+                        <label>Thumbnail Artikel</label>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-xs-6 w-25 h-25">
+                                <img class="img-thumbnail"
+                                    src="<?php echo base_url() . 'uploads/artikel/'. $foto_artikel;?>">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <div class="custom-file">
+                                    <label class="custom-file-label" for="foto_artikel">Pilih file Foto</label>
+                                    <input type="file" class="custom-file-input" id="custom-file" name="foto_artikel"
+                                        required>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -214,26 +212,27 @@ foreach ($data->result_array() as $i) :
 
 <?php
 foreach ($data->result_array() as $i) :
-    $id_kriteria = $i['id_kriteria'];
-    $nama_kriteria = $i['nama_kriteria'];
-    $tipe_kriteria = $i['tipe_kriteria'];
-    $bobot_kriteria = $i['bobot_kriteria'];
+    $id_artikel = $i['id_artikel'];
+    $judul_artikel = $i['judul_artikel'];
+    $isi_artikel = $i['isi_artikel'];
+    $foto_artikel = $i['foto_artikel'];
 ?>
+
 <!-- Modal Hapus -->
-<div id="modal-hapus<?php echo $id_kriteria; ?>" class="modal fade" tabindex="-1" role="dialog"
+<div id="modal-hapus<?php echo $id_artikel; ?>" class="modal fade" tabindex="-1" role="dialog"
     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h5 class="modal-title mt-0 " id="myModalLabel">Hapus Data Kriteria</h5>
+                <h5 class="modal-title mt-0 " id="myModalLabel">Hapus Artikel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?php echo base_url() . 'admin/kriteria/delete/' . $id_kriteria; ?>" method="post">
+            <form action="<?php echo base_url() . 'admin/artikel/delete/' . $id_artikel; ?>" method="post">
                 <div class="modal-body">
                     <p>Anda yakin mau menghapus <b
-                            class="h6 bg-danger text-white pr-2 pl-2"><?php echo $nama_kriteria; ?></b> dari data
+                            class="h6 bg-danger text-white pr-2 pl-2"><?php echo $judul_artikel; ?></b> dari data
                         kriteria?</p>
                     <p class="text-danger text-left pt-1 mb-0">*Data yang dihapus tidak akan bisa
                         dikembalikan</p>

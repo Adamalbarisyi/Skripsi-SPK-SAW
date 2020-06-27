@@ -31,17 +31,15 @@
 
 
                         <div class="table-responsive">
-
-
-
-                            <table class="table table-striped mb-0">
+                            <table id="datatable" class="table table-bordered dt-responsive  text-justify"
+                                style="width:100%">
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
-                                        <th>Nama Member</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>Alamat </th>
+                                        <th class="text-center">Nama Member</th>
+                                        <th class="text-center">Username</th>
+                                        <th class="text-center">Email</th>
+                                        <th class="text-center">Alamat </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,7 +59,7 @@
                                         <td><?php echo $nama_member;?></td>
                                         <td><?php echo $username_member;?></td>
                                         <td><?php echo $email_member;?></td>
-                                        <td><?php echo $alamat_member;?></td>
+                                        <td><?php echo $alamat_member;?></td>                    
                                     </tr>
                                     <?php endforeach;?>
                                  
