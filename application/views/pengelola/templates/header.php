@@ -90,13 +90,13 @@
                                         class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="<?php echo base_url('pengelola/buat-alternatif') ?>" class="waves-effect">
+                                    <a href="<?php echo base_url('pengelola/alternatif/buat_alternatif') ?>" class="waves-effect">
                                         <i class="mdi mdi-plus"></i>
                                         <span class="ml-2">Buat Alternatif</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('pengelola/data-alternatif') ?>" class="waves-effect">
+                                    <a href="<?php echo base_url('pengelola/alternatif/data_alternatif') ?>" class="waves-effect">
                                         <i class="mdi mdi-note"></i>
                                         <span class="ml-2">Data Alternatif</span>
                                     </a>

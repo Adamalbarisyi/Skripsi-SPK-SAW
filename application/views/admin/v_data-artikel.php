@@ -113,13 +113,15 @@ foreach ($data->result_array() as $i) :
             </div>
             <div class="modal-body">
                 <div class="mt-4 mb-4 ml-4">
-                    <input type="hidden" name="id_kriteria" value="<?php echo $id_artikel; ?>" />
+                    <input type="hidden" name="id_kriteria" value="<?php echo $id_artikel;?>" />
+                    
                     <h5 class="m-0"><?php echo $judul_artikel; ?></h5>
                 </div>
 
                 <div class="text-center">
                     <img class="img-fluid  " alt="100x100"
                         src="<?php echo base_url() . 'uploads/artikel/'. $foto_artikel; ?>" data-holder-rendered="true">
+                       
                 </div>
 
                 <div class="m-4">
@@ -185,6 +187,7 @@ foreach ($data->result_array() as $i) :
                             <div class="col-lg-6 col-md-6 col-xs-6 w-25 h-25">
                                 <img class="img-thumbnail"
                                     src="<?php echo base_url() . 'uploads/artikel/'. $foto_artikel;?>">
+                                    <input type="hidden" value="<?php echo $foto_artikel;?>" name="gambar">
                             </div>
                             <div class="col-lg-6 col-md-6 col-xs-6">
                                 <div class="custom-file">

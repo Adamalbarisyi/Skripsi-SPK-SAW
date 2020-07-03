@@ -4,13 +4,18 @@ class M_alternatif extends CI_Model
 
     function get_alternatif() //tampil data alternatif
     {
-        $result = $this->db->get('alternatif');
+        $result = $this->db->get('alternatif_proyek');
         return $result;
     }
 
     function input_data($data, $table) // Tambah data alternatif
     {
-        $this->db->insert($table, $data);
+        if ($this->db->insert($table, $data)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     function delete_data($where, $table) //Hapus data alternatif

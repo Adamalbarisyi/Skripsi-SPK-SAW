@@ -31,16 +31,17 @@ class Artikel extends CI_Controller
     {
         $config['upload_path'] = './uploads/artikel/'; //path folder
         $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-        $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+        $config['encrypt_name'] = FALSE; //nama yang terupload nantinya
         $config['max_size']     = 3024; // 3MB
-        
-        
+        $changeName= "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["foto_artikel"]['name'], PATHINFO_EXTENSION));
+        $config['file_name'] = $changeName;
+
         $this->upload->initialize($config);
         if (!empty($_FILES['foto_artikel']['name'])) {
             if ($this->upload->do_upload('foto_artikel')) {
                 $gbr = $this->upload->data();
-             
-                // $gbr['file_name'] = "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($gbr['file_name'], PATHINFO_EXTENSION));
+
+                
                 //Compress Image
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './assets/images/' . $gbr['file_name'];
@@ -78,21 +79,23 @@ class Artikel extends CI_Controller
             redirect('admin/artikel/data_artikel');
         }
     }
-    
+
     function update($id_artikel)
     {
-        
+
         $config['upload_path'] = './uploads/artikel/'; //path folder
         $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-        $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+        $config['encrypt_name'] = FALSE; //nama yang terupload nantinya
         $config['max_size']     = 3024; // 3MB
-        
-        
+        $changeName= "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["foto_artikel"]['name'], PATHINFO_EXTENSION));
+        $config['file_name'] = $changeName;
+
         $this->upload->initialize($config);
         if (!empty($_FILES['foto_artikel']['name'])) {
             if ($this->upload->do_upload('foto_artikel')) {
                 $gbr = $this->upload->data();
-             
+              
+
                 // $gbr['file_name'] = "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($gbr['file_name'], PATHINFO_EXTENSION));
                 //Compress Image
                 $config['image_library'] = 'gd2';
@@ -105,21 +108,24 @@ class Artikel extends CI_Controller
                 $config['new_image'] = './assets/images/' . $gbr['file_name'];
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
+                $gambar=$this->input->post('gambar');
+                $path='./uploads/artikel/'.$gambar;
+                unlink($path);
 
                 $foto_artikel = $gbr['file_name'];
                 $judul_artikel = strip_tags($this->input->post('judul_artikel'));
                 $isi_artikel = strip_tags($this->input->post('isi_artikel'));
-                
+
                 $data = array(
                     'judul_artikel'     => $judul_artikel,
                     'isi_artikel'     => $isi_artikel,
                     'foto_Artikel'    => $foto_artikel
                 );
-            
+
                 $where = array(
                     'id_artikel' => $id_artikel
                 );
-                $this->m_artikel->update_data($where,$data,'artikel');
+                $this->m_artikel->update_data($where, $data, 'artikel');
                 echo " <script>
 				alert('Data Artikel Berhasil ditambahkan');
 				window.location='" . site_url('admin/artikel/data_artikel') . "';
@@ -134,38 +140,8 @@ class Artikel extends CI_Controller
             redirect('admin/artikel/data_artikel');
         }
     }
-    
-    
-        
 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     function delete($id)  //delete kriteria
     {
         $where = array('id_artikel' => $id);
