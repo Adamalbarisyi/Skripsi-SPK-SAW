@@ -1,5 +1,5 @@
 <?php
-class Alternatif extends CI_Controller
+class Rangking extends CI_Controller
 {
     function __construct()
     {
@@ -8,14 +8,12 @@ class Alternatif extends CI_Controller
             $url = base_url('login');
             redirect($url);
         };
-        $this->load->model('m_alternatif');
+        $this->load->model('m_member');
     }
     function index()
     {
-        $x['query'] = $this->m_alternatif->get_alternatif_deactive();
-        $x['data'] = $this->m_alternatif->get_alternatif_active();
         $this->load->view('admin/templates/header');
-        $this->load->view('admin/v_alternatif',$x);
+        $this->load->view('admin/v_rangking');
         $this->load->view('admin/templates/footer');
     }
 

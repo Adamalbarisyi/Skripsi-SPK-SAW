@@ -7,6 +7,13 @@ class M_artikel extends CI_Model
         $result = $this->db->get('artikel');
         return $result;
     }
+    
+    function get_artikel_page() //tampil random artikel page
+    {
+        $this->db->order_by('id_artikel', 'RANDOM');
+        $result = $this->db->get('artikel',6,0);
+        return $result;
+    }
 
     function input_data($data, $table) // Tambah data artikel
     {
@@ -20,6 +27,12 @@ class M_artikel extends CI_Model
     }
 
     function update_data($where, $data, $table) // Update data artikel
+    { 
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
+    
+    function update_data2($where, $data, $table) // Update data artikel
     { 
         $this->db->where($where);
         $this->db->update($table, $data);

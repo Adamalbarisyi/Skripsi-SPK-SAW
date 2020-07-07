@@ -1,6 +1,6 @@
 </div> <!-- content -->
 
-<footer class="footer">
+<footer class="footer hide" >
     © 2020 <b>KPTI</b> <span class="d-none d-sm-inline-block"> - Created by <i class="mdi mdi-heart text-danger"></i>
         Muhammad Rifki Adam Albarisyi</span>
 </footer>

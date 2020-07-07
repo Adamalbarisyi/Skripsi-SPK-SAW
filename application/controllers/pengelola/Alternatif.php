@@ -10,7 +10,6 @@ class Alternatif extends CI_Controller
         };
         $this->load->model('m_alternatif');
         $this->load->library('upload');
-        $this->load->helper(array('form', 'url'));
     }
     function buat_alternatif()
     {
@@ -21,7 +20,8 @@ class Alternatif extends CI_Controller
 
     function data_alternatif()
     {
-        $x['data'] = $this->m_alternatif->get_alternatif();
+        $x['query'] = $this->m_alternatif->get_alternatif_deactive();
+        $x['data'] = $this->m_alternatif->get_alternatif_active();
         $this->load->view('pengelola/templates/header');
         $this->load->view('pengelola/pages/v_data_alternatif',$x);
         $this->load->view('pengelola/templates/footer');
@@ -96,7 +96,7 @@ class Alternatif extends CI_Controller
             $this->m_alternatif->input_data($data, 'alternatif_proyek');
             echo " <script>
              alert('Data Alternatif Berhasil ditambahkan');
-             window.location='" . site_url('pengelola/alternatif/data_alternatif') . "';
+             window.location='" . site_url('pengelola/dashboard') . "';
          </script>";
         } else {
             echo " <script>
@@ -104,9 +104,13 @@ class Alternatif extends CI_Controller
 			window.location='" . site_url('pengelola/alternatif/buat_alternatif') . "';
 		</script>";
         }
+        
+        
+        
+        
     }
 
-    function save()
+    function edit($id_proyek)
     {
 
         if ($this->input->post('submit') == true) {
@@ -127,47 +131,7 @@ class Alternatif extends CI_Controller
                 $fotoproyek[$i] = $this->upload->data()["file_name"];
             }
             
-            // if (!empty($_FILES['fotoproyek1']['name'])) {
-            //     $config['file_name'] = "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["fotoproyek1"]['name'], PATHINFO_EXTENSION));
-            //     $this->upload->initialize($config);
-            //     $this->upload->do_upload('fotoproyek1');
-            //     $fotoproyek[1] = $this->upload->data()["file_name"];
-            // }
-
-            // if (!empty($_FILES['fotoproyek2']['name'])) {
-            //     $config['file_name'] = "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["fotoproyek2"]['name'], PATHINFO_EXTENSION));
-            //     $this->upload->initialize($config);
-            //     $this->upload->do_upload('fotoproyek2');
-            //     $fotoproyek[2] = $this->upload->data()["file_name"];
-                
-            // }
-
-            // if (!empty($_FILES['fotoproyek3']['name'])) {
-            //     $config['file_name'] = "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["fotoproyek3"]['name'], PATHINFO_EXTENSION));
-            //     $this->upload->initialize($config);
-            //     $this->upload->do_upload('fotoproyek3');
-            //     $fotoproyek[3] = $this->upload->data()["file_name"];
-            // }
-
-            // if (!empty($_FILES['fotoproyek4']['name'])) {
-            //     $config['file_name'] = "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["fotoproyek4"]['name'], PATHINFO_EXTENSION));
-            //     $fotoproyek4 = $this->upload->do_upload('fotoproyek4');
-            //     $fotoproyek[4] = $this->upload->data()["file_name"];
-            // }
-
-            // for ($i = 0; $i < $cpt; $i++) {
-            //     $_FILES['fotoproyek']['name'] = $files['fotoproyek']['name'][$i];
-            //     $_FILES['fotoproyek']['type'] = $files['fotoproyek']['type'][$i];
-            //     $_FILES['fotoproyek']['tmp_name'] = $files['fotoproyek']['tmp_name'][$i];
-            //     $_FILES['fotoproyek']['error'] = $files['fotoproyek']['error'][$i];
-            //     $_FILES['fotoproyek']['size'] = $files['fotoproyek']['size'][$i];
-
-            //     $this->upload->initialize($this->set_upload_options($i));
-            //     $this->upload->do_upload();
-            //     $dataInfo[] = $this->upload->data();
-          
-            // }
-            
+    
             $judul_proyek = strip_tags($this->input->post('judul_proyek'));
             $deskripsi_proyek = strip_tags($this->input->post('deskripsi_proyek'));
             $sertifikat_proyek = strip_tags($this->input->post('sertifikat_proyek'));
@@ -205,15 +169,19 @@ class Alternatif extends CI_Controller
                 'fotoproyek5' => $fotoproyek[5],
             );
             
-            if ($this->m_alternatif->input_data($data, 'alternatif_proyek')) {
+            $where = array(
+                'id_proyek' => $id_proyek
+            );
+            
+            if ($this->m_alternatif->update_data($where,$data, 'alternatif_proyek')) {
                     echo " <script>
              alert('Data Alternatif Berhasil ditambahkan');
-             window.location='" . site_url('pengelola/alternatif/data_alternatif') . "';
+             window.location='" . site_url('pengelola/dashboard') . "';
          </script>";
             }
             else {
                 echo "<script>
-                    alert('Error !!!! Data Alternatif Gagal untuk ditambahkan');
+                    alert('Error !!!! Data Alternatif Gagal untuk diubah');
                     window.location='" . site_url('pengelola/alternatif/buat_alternatif') . "';
                 </script>";
             }
@@ -226,33 +194,8 @@ class Alternatif extends CI_Controller
 		    </script>";
         }
     }
+    
+    
 
-
-
-    private function set_upload_options($i)
-    {
-        //upload an image options
-        $config = array();
-        $config['upload_path'] = './uploads/produk/'; //path folder
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-        $config['encrypt_name'] = FALSE; //nama yang terupload nantinya
-        $config['max_size']     = 3024; // 3MB
-
-        $changeName = "Produk".$i."_". date("Y_m_d_") . time() . "." . strtolower(pathinfo($_FILES['fotoproyek']['name'], PATHINFO_EXTENSION));
-        $config['file_name'] = $changeName;
-        
-        
-                //Compress Image
-                $config['image_library'] = 'gd2';
-                $config['source_image'] = './assets/images/' . $config['file_name'];
-                $config['create_thumb'] = FALSE;
-                $config['maintain_ratio'] = FALSE;
-                $config['quality'] = '60%';
-                $config['width'] = 710;
-                $config['height'] = 420;
-                $config['new_image'] = './assets/images/' . $config['file_name'];
-                $this->load->library('image_lib', $config);
-                $this->image_lib->resize();
-        return $config;
+    
     }
-}

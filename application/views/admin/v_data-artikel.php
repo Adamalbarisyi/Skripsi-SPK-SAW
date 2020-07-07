@@ -112,17 +112,19 @@ foreach ($data->result_array() as $i) :
 
             </div>
             <div class="modal-body">
-                <div class="mt-4 mb-4 ml-4">
-                    <input type="hidden" name="id_kriteria" value="<?php echo $id_artikel;?>" />
-                    
-                    <h5 class="m-0"><?php echo $judul_artikel; ?></h5>
-                </div>
-
-                <div class="text-center">
-                    <img class="img-fluid  " alt="100x100"
+                
+            <div class="text-center">
+                    <img class="img-fluid w-50 h-50" alt="100x100"
                         src="<?php echo base_url() . 'uploads/artikel/'. $foto_artikel; ?>" data-holder-rendered="true">
                        
                 </div>
+            
+                <div class="mt-4 mb-4 ml-4">
+                    <input type="hidden" name="id_kriteria" value="<?php echo $id_artikel;?>" />
+                    
+                    <h5 class="text-center"><?php echo $judul_artikel; ?></h5>
+                </div>
+
 
                 <div class="m-4">
                     <?php echo $this->typography->auto_typography($isi_artikel)?>
@@ -168,16 +170,16 @@ foreach ($data->result_array() as $i) :
                 <div class="modal-body">
                     <div class="form-group">
                         <label>Judul Artikel</label>
-                        <input type="hidden" name="id_Artikel" value="<?php echo $id_artikel;?>" />
+                        <input type="hidden" name="id_artikel" value="<?php echo $id_artikel;?>" />
                         <input type="text" class="form-control" name="judul_artikel"
-                            value="<?php echo $judul_artikel;?>" required />
+                            value="<?php echo $judul_artikel;?>" />
                     </div>
 
                     <div class="form-group">
                         <label for=isi_artikel>Ringkasan berita</label>
                         <div>
-                            <textarea id="elm1" name="isi_artikel" cols=”45″ rows=”5″
-                                required><?php echo $isi_artikel;?></textarea>
+                            <textarea id="elm1" name="isi_artikel" cols=”45″ rows=”5″>
+                            <?php echo $this->typography->auto_typography($isi_artikel)?></textarea>
                         </div>
                     </div>
 
@@ -185,15 +187,14 @@ foreach ($data->result_array() as $i) :
                         <label>Thumbnail Artikel</label>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-xs-6 w-25 h-25">
-                                <img class="img-thumbnail"
+                                <img class="img-thumbnail w-75 h-75"
                                     src="<?php echo base_url() . 'uploads/artikel/'. $foto_artikel;?>">
                                     <input type="hidden" value="<?php echo $foto_artikel;?>" name="gambar">
                             </div>
                             <div class="col-lg-6 col-md-6 col-xs-6">
                                 <div class="custom-file">
                                     <label class="custom-file-label" for="foto_artikel">Pilih file Foto</label>
-                                    <input type="file" class="custom-file-input" id="custom-file" name="foto_artikel"
-                                        required>
+                                    <input type="file" class="custom-file-input" id="custom-file" name="foto_artikel">
                                 </div>
                             </div>
                         </div>

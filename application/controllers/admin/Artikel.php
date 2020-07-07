@@ -76,7 +76,10 @@ class Artikel extends CI_Controller
 		</script>";
             }
         } else {
-            redirect('admin/artikel/data_artikel');
+            echo " <script>
+			alert('Error !!!! Ada Data yang belum ditambahkan');
+			window.location='" . site_url('admin/artikel/buat_artikel') . "';
+		</script>";
         }
     }
 
@@ -119,7 +122,7 @@ class Artikel extends CI_Controller
                 $data = array(
                     'judul_artikel'     => $judul_artikel,
                     'isi_artikel'     => $isi_artikel,
-                    'foto_Artikel'    => $foto_artikel
+                    'foto_rtikel'    => $foto_artikel
                 );
 
                 $where = array(
@@ -137,7 +140,22 @@ class Artikel extends CI_Controller
 		</script>";
             }
         } else {
-            redirect('admin/artikel/data_artikel');
+            $judul_artikel = strip_tags($this->input->post('judul_artikel'));
+                $isi_artikel = strip_tags($this->input->post('isi_artikel'));
+
+                $data = array(
+                    'judul_artikel'     => $judul_artikel,
+                    'isi_artikel'     => $isi_artikel
+                );
+
+                $where = array(
+                    'id_artikel' => $id_artikel
+                );
+                $this->m_artikel->update_data2($where, $data, 'artikel');
+                echo " <script>
+				alert('Data Artikel Berhasil ditambahkan');
+				window.location='" . site_url('admin/artikel/data_artikel') . "';
+                </script>";
         }
     }
 

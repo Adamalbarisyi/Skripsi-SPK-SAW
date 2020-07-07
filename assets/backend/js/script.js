@@ -60,7 +60,10 @@ $(".custom-file-input").on("change", function () {
 
 $(document).ready(function () {
 	$("#data-table").DataTable();
+	$('table.display').DataTable();
 });
+
+
 
 function deleteConfirm(url){
 	$('#btn-delete').attr('href', url);

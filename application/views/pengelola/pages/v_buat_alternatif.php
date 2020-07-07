@@ -128,6 +128,39 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="form-group mt-4">
+                            <label>Nama Pengelola</label>
+                            <div>
+                                <input type="text" class="form-control input-bottom" name="nama_pengelola" required placeholder="Input nama pengelola" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Nama Kantor</label>
+                            <div class="form-group">
+                                <select class="form-control" name="nama_kantor" required>
+                                    <option value="">-PILIH-</option>
+                                    <option value="Orange Property">Orange Property</option>
+                                    <option value="ATM Property">ATM Property</option>
+                                    <option value="AGSL Property">AGSL Property</option>
+                                    <option value="Cakrawala Property">Cakrawala Property</option>
+                                    <option value="BLD Jogja Property">BLD Jogja Property</option>
+                                    <option value="KANS Property">KANS Property</option>
+                                    <option value="GM Property">GM Property</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nomor Hp/WA</label>
+                            <div>
+                                <input type="number" class="form-control input-bottom" name="nomor_hp" required placeholder="Input No Hp/WA" />
+                            </div>
+                        </div>
+                        
+                        
+                        
 
                         <label class="mt-4 mb-3 h5">Pilih Foto Proyek</label>
                         <!-- <?php for ($i = 1; $i <= 4; $i++) : ?>
@@ -178,40 +211,6 @@
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="customFile" name="fotoproyek5" required>
                                 <label class="custom-file-label" for="customFile">Pilih file foto 5</label>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="form-group mt-4">
-                            <label>Nama Pengelola</label>
-                            <div>
-                                <input type="text" class="form-control input-bottom" name="nama_pengelola" required placeholder="Input nama pengelola" />
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Nama Kantor</label>
-                            <div class="form-group">
-                                <select class="form-control" name="nama_kantor" required>
-                                    <option value="">-PILIH-</option>
-                                    <option value="Orange Property">Orange Property</option>
-                                    <option value="ATM Property">ATM Property</option>
-                                    <option value="AGSL Property">AGSL Property</option>
-                                    <option value="Cakrawala Property">Cakrawala Property</option>
-                                    <option value="BLD Jogja Property">BLD Jogja Property</option>
-                                    <option value="KANS Property">KANS Property</option>
-                                    <option value="GM Property">GM Property</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Nomor Hp/WA</label>
-                            <div>
-                                <input type="number" class="form-control input-bottom" name="nomor_hp" required placeholder="Input No Hp/WA" />
                             </div>
                         </div>
 
