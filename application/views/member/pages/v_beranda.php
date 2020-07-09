@@ -20,8 +20,7 @@
 
             <header class="section-header">
                 <h3>Produk Tanah Untuk Anda</h3>
-                <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant
-                    vituperatoribus.</p>
+                <p>Produk tanah kavling sudah bersertifikat SHM yang ada di Yogyakarta</p>
             </header>
 
 

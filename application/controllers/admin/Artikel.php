@@ -89,7 +89,7 @@ class Artikel extends CI_Controller
         $config['upload_path'] = './uploads/artikel/'; //path folder
         $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
         $config['encrypt_name'] = FALSE; //nama yang terupload nantinya
-        $config['max_size']     = 3024; // 3MB
+        $config['max_size']     = 5024; // 3MB
         $changeName= "Artikel_".date("Y_m_d_").time().".".strtolower(pathinfo($_FILES["foto_artikel"]['name'], PATHINFO_EXTENSION));
         $config['file_name'] = $changeName;
 

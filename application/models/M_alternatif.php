@@ -31,8 +31,10 @@ class M_alternatif extends CI_Model
 
     function get_alternatif_page() //tampil random data alternatif
     {
+        $result = $this->db->get_where('alternatif_proyek', ['status_post'=>'1']);
         $this->db->order_by('id_proyek', 'RANDOM');
-        $result = $this->db->get('alternatif_proyek', 6, 1);
+        $this->db->limit(6); // menampilkan
+        //$result = $this->db->result();
         return $result;
     }
 
@@ -56,6 +58,7 @@ class M_alternatif extends CI_Model
     {
         $this->db->where($where);
         $this->db->update($table, $data);
+        return true;
     }
 
 
@@ -65,8 +68,11 @@ class M_alternatif extends CI_Model
         $this->db->update($table, $data);
     }
 
-    function update_data_deactive($where, $table)   // Update data alternatif deactive
+    
+    function show_data($where, $table) // Show data alternatif
     {
-        return $this->db->get_where($table, $where);
+        $this->db->where($where);
+        return $this->db->from($table);
+        return true;
     }
 }

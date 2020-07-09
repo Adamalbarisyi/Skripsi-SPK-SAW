@@ -22,7 +22,7 @@
                     <div class="card-body">
 
                         <h4 class="mt-0 header-title">Data Alternatif Aktif <span
-                                class="badge badge-succes ml-2 p-2">Aktif</span> </h4>
+                                class="badge badge-success ml-2 p-2">Aktif</span> </h4>
                         <p class="text-muted m-b-30 font-14">
                             Data proyek tanah kavling publis yang ada di Yogyakarta
                         </p>
@@ -33,7 +33,7 @@
                                 <thead class="text-center">
                                     <tr>
                                         <th>No</th>
-                                        <th>Judul Artikel</th>
+                                         <th>Judul Proyek</th>
                                         <th>Nama Kantor</th>
                                         <th>Status Iklan</th>
                                         <th>Aksi</th>
@@ -81,7 +81,7 @@
                                                 data-target="#modal-detail<?php echo $id_proyek; ?>">
                                                 <button type="button" class="btn btn-small btn-info"
                                                     data-placement="top" title="Detail Data" data-toggle="tooltip">
-                                                    <i class="mdi mdi-lead-pencil font-weight-bold text-white"></i>
+                                                    <i class="mdi mdi-clipboard-text font-weight-bold text-white"></i>
                                                 </button>
                                             </span>
 
@@ -171,7 +171,7 @@
                                                 data-target="#modal-detail<?php echo $id_proyek; ?>">
                                                 <button type="button" class="btn btn-small btn-info"
                                                     data-placement="top" title="Detail Data" data-toggle="tooltip">
-                                                    <i class="mdi mdi-lead-pencil font-weight-bold text-white"></i>
+                                                    <i class="mdi mdi-clipboard-text font-weight-bold text-white"></i>
                                                 </button>
                                             </span>
 
@@ -384,7 +384,7 @@ foreach ($data->result_array() as $i) :
                 </div>
                 <div class="modal-body">
 
-                    <form action="<?php echo base_url() . 'pengelola/alternatif/edit' ?>" method="post"
+                    <form action="<?php echo base_url() . 'pengelola/alternatif/edit/'.$id_proyek ?>" method="post"
                         enctype="multipart/form-data">
 
                         <input type="hidden" name="id_kriteria" value="<?php echo $id_proyek;?>" />
@@ -604,8 +604,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-2 mb-2">
                                     <label>Foto 1 <small>* Foto Card Copy</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek1"
-                                            required>
+                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek1">
                                         <label class="custom-file-label" for="customFile">Pilih file foto 1</label>
                                     </div>
                                 </div>
@@ -626,8 +625,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-2 mb-2">
                                     <label>Foto 2<small>* Foto Side Plan</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek2"
-                                            required>
+                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek2">
                                         <label class="custom-file-label" for="customFile">Pilih file foto 2</label>
                                     </div>
                                 </div>
@@ -647,8 +645,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-2 mb-2">
                                     <label>Foto 3<small>* Foto Harga Proyek</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek3"
-                                            required>
+                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek3">
                                         <label class="custom-file-label" for="customFile">Pilih file foto 3</label>
                                     </div>
                                 </div>
@@ -668,8 +665,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-2 mb-2">
                                     <label>Foto 4<small>* Foto Side Plan</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek4"
-                                            required>
+                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek4">
                                         <label class="custom-file-label" for="customFile">Pilih file foto 4</label>
                                     </div>
                                 </div>
@@ -689,8 +685,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-2 mb-2">
                                     <label>Foto 5<small>* Foto Harga Proyek</small></label>
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek3"
-                                            required>
+                                        <input type="file" class="custom-file-input" id="customFile" name="fotoproyek5">
                                         <label class="custom-file-label" for="customFile">Pilih file foto 5</label>
                                     </div>
                                 </div>
@@ -704,10 +699,11 @@ foreach ($data->result_array() as $i) :
                             </div>
                         </div>
                 </div>
+                <p><?php echo $this->session->flashdata('msg');?></p>
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <button class="btn btn-waarning">Update</button>
+                    <input class="btn btn-info" name="submit" type="submit" value="Update">
                 </div>
 
                 </form>

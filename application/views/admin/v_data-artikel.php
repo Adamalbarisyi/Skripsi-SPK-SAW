@@ -58,7 +58,7 @@
                                                 data-target="#modal-detail<?php echo $id_artikel; ?>">
                                                 <button type="button" class="btn btn-small btn-info"
                                                     data-placement="top" title="Detail Data" data-toggle="tooltip">
-                                                    <i class="mdi mdi-lead-pencil font-weight-bold text-white"></i>
+                                                    <i class="mdi mdi-clipboard-text font-weight-bold text-white"></i>
                                                 </button>
                                             </span>
 

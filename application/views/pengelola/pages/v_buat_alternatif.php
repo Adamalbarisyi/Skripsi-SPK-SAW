@@ -23,7 +23,12 @@
                         <h4 class="mt-0 ">Post Data Alternatif</h4>
                         <p class="text-muted m-b-30 font-14">Form upload untuk produk Tanah Kavling.</p>
 
-                        <form action="<?php echo base_url() . 'pengelola/alternatif/save' ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo base_url() . 'pengelola/alternatif/simpan'?>" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                                <label>Nama Proyek</label>
+                                <input type="text" class="form-control input-bottom" name="nama_proyek" required placeholder="Tuliskan Nama Proyek" />
+                            </div>
+                           
                             <div class="form-group">
                                 <label>Judul Proyek</label>
                                 <input type="text" class="form-control input-bottom" name="judul_proyek" required placeholder="Tuliskan Judul Proyek" />
@@ -159,20 +164,6 @@
                             </div>
                         </div>
                         
-                        
-                        
-
-                        <label class="mt-4 mb-3 h5">Pilih Foto Proyek</label>
-                        <!-- <?php for ($i = 1; $i <= 4; $i++) : ?>
-                        <div class="form-group mb-2">
-                            <label>Foto <?php echo $i; ?> </label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile<?php echo $i; ?>" name="fotoproyek<?php echo $i; ?>" required>
-                                <label class="custom-file-label" for="customFile<?php echo $i; ?>">Pilih file foto <?php echo $i; ?></label>
-                            </div>
-                        </div>
-                        <?php endfor; ?> -->
-
 
                         <div class="form-group mt-2 mb-2">
                             <label>Foto 1 <small>* Foto Card Copy</small></label>
