@@ -8,6 +8,6 @@ $route['default_controller'] = 'member/beranda';
 $route['admin'] = ['admin/dashboard'];
 $route['pengelola']= ['pengelola/dashboard'];
 $route['login'] = 'login';
-$route['signup'] = 'signup';
+$route['register'] = 'register';
 $route['404_override'] = ''; 
 $route['translate_uri_dashes'] = FALSE;

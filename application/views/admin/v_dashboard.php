@@ -121,8 +121,9 @@
                                 <thead class="text-center">
                                     <tr>
                                         <th>No</th>
-                                        <th>Judul Artikel</th>
+                                        <th>Nama Proyek</th>
                                         <th>Nama Kantor</th>
+                                        <th>Lokasi Proyek</th>
                                         <th>Verifikasi Iklan</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -133,13 +134,14 @@
                                     $no = 1;
                                     foreach ($data->result_array() as $i) :
                                         $id_proyek = $i['id_proyek'];
+                                        $nama_proyek = $i['nama_proyek'];
                                         $judul_proyek = $i['judul_proyek'];
                                         $deskripsi_proyek = $i['deskripsi_proyek'];
                                         $sertifikat_proyek = $i['sertifikat_proyek'];
                                         $provinsi_proyek = $i['provinsi_proyek'];
                                         $kabupaten_proyek = $i['kabupaten_proyek'];
                                         $luastanah_proyek = $i['luastanah_proyek'];
-                                        $harga_m_proyek = $i['harga/m_proyek'];
+                                        $harga_m_proyek = $i['harga_m_proyek'];
                                         $lebar_depan_proyek = $i['lebar_depan_proyek'];
                                         $harga_total_proyek = $i['harga_total_proyek'];
                                         $jarak_proyek = $i['jarak_proyek'];
@@ -157,8 +159,9 @@
 
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
-                                        <td><?php echo $judul_proyek; ?></td>
+                                        <td><?php echo $nama_proyek; ?></td>
                                         <td><?php echo $nama_kantor; ?></td>
+                                        <td><?php echo $kabupaten_proyek; ?></td>
                                         <td class="text-center">
 
                                             <a
@@ -216,13 +219,14 @@
 <?php
 foreach ($data->result_array() as $i) :
     $id_proyek = $i['id_proyek'];
+    $nama_proyek = $i['nama_proyek'];
     $judul_proyek = $i['judul_proyek'];
     $deskripsi_proyek = $i['deskripsi_proyek'];
     $sertifikat_proyek = $i['sertifikat_proyek'];
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -255,9 +259,13 @@ foreach ($data->result_array() as $i) :
                         <input type="hidden" name="id_proyek" value="<?php echo $id_proyek; ?>" />
 
                     </div>
+                    
+                    <div class="form-group text-center">
+                        <h6 class="m-0"><?php echo $nama_proyek; ?></h6>
+                    </div>
 
                     <div class="form-group text-center">
-                        <h6 class="m-0"><?php echo $judul_proyek; ?></h6>
+                        <h6 class="m-0"><?php echo $this->typography->auto_typography($judul_proyek);?></h6>
                     </div>
 
 
@@ -276,7 +284,6 @@ foreach ($data->result_array() as $i) :
                                     <li class="display-6">Luas Tanah</li>
                                     <li class="display-6">Lebar Depan</li>
                                     <li class="display-6">Harga/m</li>
-                                    <li class="display-6">Jarak dengan Pusat Kota</li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-12 w-50 pl-0">
@@ -288,7 +295,6 @@ foreach ($data->result_array() as $i) :
                                     <li class="display-6">: <b><?php echo $luastanah_proyek; ?> m<sup>2</sup></b></li>
                                     <li class="display-6">: <b><?php echo $lebar_depan_proyek; ?> m<sup>2</sup></b></li>
                                     <li class="display-6">: <b>Rp. <?php echo $harga_m_proyek; ?></b></li>
-                                    <li class="display-6">: <b><?php echo $jarak_proyek; ?> Km</b> </li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-12 w-50 pr-0">
@@ -370,13 +376,14 @@ foreach ($data->result_array() as $i) :
 <?php
 foreach ($data->result_array() as $i) :
     $id_proyek = $i['id_proyek'];
+    $nama_proyek = $i['nama_proyek'];
     $judul_proyek = $i['judul_proyek'];
     $deskripsi_proyek = $i['deskripsi_proyek'];
     $sertifikat_proyek = $i['sertifikat_proyek'];
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -410,10 +417,17 @@ foreach ($data->result_array() as $i) :
                         enctype="multipart/form-data">
 
                         <input type="hidden" name="id_kriteria" value="<?php echo $id_proyek;?>" />
+                        
+                        <div class="form-group">
+                            <label>Nama Proyek</label>
+                            <input type="text" class="form-control input-bottom" name="nama_proyek"
+                                value="<?php echo $nama_proyek;?>" placeholder="Tuliskan Judul Proyek" />
+                        </div>
+                        
                         <div class="form-group">
                             <label>Judul Proyek</label>
                             <input type="text" class="form-control input-bottom" name="judul_proyek"
-                                value="<?php echo $judul_proyek;?>" placeholder="Tuliskan Judul Proyek" />
+                                value="<?php echo $this->typography->auto_typography($judul_proyek);?>" placeholder="Tuliskan Judul Proyek" />
                         </div>
 
                         <div class="form-group">
@@ -493,7 +507,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Harga/m</label>
                                     <div>
-                                        <input type="text" class="form-control input-bottom" name="harga/m_proyek"
+                                        <input type="text" class="form-control input-bottom" name="harga_m_proyek"
                                             value="<?php echo $harga_m_proyek;?>" placeholder="Input Harga/m" />
                                     </div>
                                 </div>

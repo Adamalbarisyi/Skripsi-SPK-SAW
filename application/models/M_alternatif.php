@@ -28,6 +28,11 @@ class M_alternatif extends CI_Model
 
         return $hasil;
     }
+    
+    public function  get_alternatif_detail_active($id){
+        return $this->db->get_where('alternatif_proyek', ['id_proyek' => $id]);
+    }
+    
 
     function get_alternatif_page() //tampil random data alternatif
     {

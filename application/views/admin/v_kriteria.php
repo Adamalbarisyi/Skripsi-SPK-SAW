@@ -31,7 +31,6 @@
 
 
                         <div class="table-responsive">
-
                             <div class="text-center p-4 float-right">
 
                                 <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal"
@@ -41,18 +40,20 @@
                             </div>
 
 
-                            <table class="table table-striped mb-0">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th>Nama Kriteria</th>
-                                        <th class="text-center">Tipe Kriteria</th>
-                                        <th class="text-center">Bobot Kriteria</th>
-                                        <th class="text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-bordered dt-responsive  text-justify"
+                                    style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama Kriteria</th>
+                                            <th class="text-center">Tipe Kriteria</th>
+                                            <th class="text-center">Bobot Kriteria</th>
+                                            <th class="text-center">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
                                     $no=1;
                                        foreach($data->result_array() as $i):
                                            $id_kriteria=$i['id_kriteria'];
@@ -60,36 +61,37 @@
                                            $tipe_kriteria=$i['tipe_kriteria'];
                                            $bobot_kriteria=$i['bobot_kriteria'];
                                    ?>
-                                    <tr>
-                                        <th class="text-center" scope="row"><?php echo $no++; ?></th>
-                                        <td><?php echo $nama_kriteria;?></td>
-                                        <td class="text-center"><?php echo $tipe_kriteria;?></td>
-                                        <td class="text-center"><?php echo $bobot_kriteria;?></td>
+                                        <tr>
+                                            <th class="text-center" scope="row"><?php echo $no++; ?></th>
+                                            <td><?php echo $nama_kriteria;?></td>
+                                            <td class="text-center"><?php echo $tipe_kriteria;?></td>
+                                            <td class="text-center"><?php echo $bobot_kriteria;?></td>
 
 
-                                        <td class="text-center">
+                                            <td class="text-center">
 
-                                            <span data-toggle="modal"
-                                                data-target="#modal-edit<?php echo $id_kriteria;?>">
-                                                <button type="button" class="btn btn-small btn-warning"
-                                                    data-placement="top" title="Edit Data" data-toggle="tooltip">
-                                                    <i class="mdi mdi-lead-pencil font-weight-bold text-white"></i>
-                                                </button>
-                                            </span>
+                                                <span data-toggle="modal"
+                                                    data-target="#modal-edit<?php echo $id_kriteria;?>">
+                                                    <button type="button" class="btn btn-small btn-warning"
+                                                        data-placement="top" title="Edit Data" data-toggle="tooltip">
+                                                        <i class="mdi mdi-lead-pencil font-weight-bold text-white"></i>
+                                                    </button>
+                                                </span>
 
-                                            <span data-toggle="modal"
-                                                data-target="#modal-hapus<?php echo $id_kriteria;?>">
-                                                <button type="button" class="btn btn-small btn-danger"
-                                                    data-placement="top" title="Hapus Data" data-toggle="tooltip">
-                                                    <i class="mdi mdi-delete font-weight-bold text-white"></i>
-                                                </button>
-                                            </span>
+                                                <span data-toggle="modal"
+                                                    data-target="#modal-hapus<?php echo $id_kriteria;?>">
+                                                    <button type="button" class="btn btn-small btn-danger"
+                                                        data-placement="top" title="Hapus Data" data-toggle="tooltip">
+                                                        <i class="mdi mdi-delete font-weight-bold text-white"></i>
+                                                    </button>
+                                                </span>
 
-                                        </td>
-                                    </tr>
-                                    <?php endforeach;?>
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,16 +102,6 @@
 
 
 
-<?php
-     foreach($data->result_array() as $i):
-            $id_kriteria=$i['id_kriteria'];
-            $nama_kriteria=$i['nama_kriteria'];
-            $tipe_kriteria=$i['tipe_kriteria'];
-            $bobot_kriteria=$i['bobot_kriteria'];
-    ?>
-
-
-<!-- ADD MODAL -->
 <div id="modal-tambah" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -166,10 +158,9 @@
                     </div>
                 </div>
             </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<?php endforeach;?>
+        </div>
+    </div>
+</div>
 
 
 

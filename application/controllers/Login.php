@@ -38,11 +38,12 @@ class Login extends CI_Controller
             }
         } elseif ($cekmember->num_rows() > 0) {
             $member = $cekmember->row_array();
+            $this->session->set_userdata('akses','3');
             $this->session->set_userdata('masuk', true);
             $this->session->set_userdata('user', $username);
             $this->session->set_userdata('idmember', $member['id_member']);
             $this->session->set_userdata('nama',  $member['nama_member']);
-            redirect('member/home');
+            redirect('member/dashboard');
         } else {
             echo $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert"><span class="fa fa-close"></span></button> Username Atau Password Salah</div>');
             redirect('login');
@@ -53,5 +54,11 @@ class Login extends CI_Controller
     {
         $this->session->sess_destroy();
         redirect('login');
+    }
+    
+    function logout_member()
+    {
+        $this->session->sess_destroy();
+        redirect('member/beranda');
     }
 }

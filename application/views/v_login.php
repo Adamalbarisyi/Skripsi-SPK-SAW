@@ -25,11 +25,11 @@
 <body class="fixed-left">
 
     <!-- Loader -->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div id="status">
             <div class="spinner"></div>
         </div>
-    </div> -->
+    </div>
 
     <!-- Begin page -->
     <div class="accountbg">
@@ -44,7 +44,7 @@
                                 <div class="card-body">
 
                                     <h3 class="text-center mt-0 m-b-15">
-                                        <a href="index.html" class="logo logo-admin"><img
+                                        <a href="#" class="logo logo-admin"><img
                                                 src="<?php echo base_url('assets/backend/images/logo-dark.png') ?>"
                                                 height="30" alt="logo"></a>
                                     </h3>
@@ -79,6 +79,14 @@
                                                         type="submit">Log In</button>
                                                 </div>
                                             </div>
+                                            <div class="form-group m-t-10 mb-0 row">
+                                                    <div class="col-sm-7 m-t-20">
+                                                        <!-- <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password?</a> -->
+                                                    </div>
+                                                    <div class="col-sm-5 m-t-20">
+                                                        <a href="<?php echo base_url().'register'?>" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
+                                                    </div>
+                                                </div>
                                         </div>
                                     </form>
 

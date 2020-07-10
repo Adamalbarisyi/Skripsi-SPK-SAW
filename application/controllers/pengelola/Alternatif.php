@@ -10,6 +10,8 @@ class Alternatif extends CI_Controller
         };
         $this->load->model('m_alternatif');
         $this->load->library('upload');
+        $this->load->helper('text');
+        $this->load->helper('date');
     }
     function buat_alternatif()
     {
@@ -56,7 +58,7 @@ class Alternatif extends CI_Controller
             $provinsi_proyek = strip_tags($this->input->post('provinsi_proyek'));
             $kabupaten_proyek = strip_tags($this->input->post('kabupaten_proyek'));
             $luastanah_proyek = strip_tags($this->input->post('luastanah_proyek'));
-            $harga_m_proyek = strip_tags($this->input->post('harga/m_proyek'));
+            $harga_m_proyek = strip_tags($this->input->post('harga_m_proyek'));
             $lebar_depan_proyek = strip_tags($this->input->post('lebar_depan_proyek'));
             $harga_total_proyek = strip_tags($this->input->post('harga_total_proyek'));
             $jarak_proyek = strip_tags($this->input->post('jarak_proyek'));
@@ -79,7 +81,7 @@ class Alternatif extends CI_Controller
                 'provinsi_proyek'     => $provinsi_proyek,
                 'kabupaten_proyek'    => $kabupaten_proyek,
                 'luastanah_proyek'     => $luastanah_proyek,
-                'harga/m_proyek'    => $harga_m_proyek,
+                'harga_m_proyek'    => $harga_m_proyek,
                 'lebar_depan_proyek'     => $lebar_depan_proyek,
                 'harga_total_proyek'    => $harga_total_proyek,
                 'jarak_proyek'     => $jarak_proyek,
@@ -148,7 +150,7 @@ class Alternatif extends CI_Controller
             $provinsi_proyek = strip_tags($this->input->post('provinsi_proyek'));
             $kabupaten_proyek = strip_tags($this->input->post('kabupaten_proyek'));
             $luastanah_proyek = strip_tags($this->input->post('luastanah_proyek'));
-            $harga_m_proyek = strip_tags($this->input->post('harga/m_proyek'));
+            $harga_m_proyek = strip_tags($this->input->post('harga_m_proyek'));
             $lebar_depan_proyek = strip_tags($this->input->post('lebar_depan_proyek'));
             $harga_total_proyek = strip_tags($this->input->post('harga_total_proyek'));
             $jarak_proyek = strip_tags($this->input->post('jarak_proyek'));
@@ -165,7 +167,7 @@ class Alternatif extends CI_Controller
                 'provinsi_proyek'     => $provinsi_proyek,
                 'kabupaten_proyek'    => $kabupaten_proyek,
                 'luastanah_proyek'     => $luastanah_proyek,
-                'harga/m_proyek'    => $harga_m_proyek,
+                'harga_m_proyek'    => $harga_m_proyek,
                 'lebar_depan_proyek'     => $lebar_depan_proyek,
                 'harga_total_proyek'    => $harga_total_proyek,
                 'jarak_proyek'     => $jarak_proyek,

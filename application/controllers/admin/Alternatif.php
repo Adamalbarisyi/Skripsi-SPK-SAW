@@ -6,7 +6,8 @@ class Alternatif extends CI_Controller
         parent::__construct();
 
         $this->load->model('m_alternatif');
-
+        $this->load->helper('text');
+        $this->load->helper('date');
         $this->load->library('upload');
     }
     function index()
@@ -55,13 +56,14 @@ class Alternatif extends CI_Controller
             }
 
 
+            $nama_proyek = strip_tags($this->input->post('nama_proyek'));
             $judul_proyek = strip_tags($this->input->post('judul_proyek'));
             $deskripsi_proyek = strip_tags($this->input->post('deskripsi_proyek'));
             $sertifikat_proyek = strip_tags($this->input->post('sertifikat_proyek'));
             $provinsi_proyek = strip_tags($this->input->post('provinsi_proyek'));
             $kabupaten_proyek = strip_tags($this->input->post('kabupaten_proyek'));
             $luastanah_proyek = strip_tags($this->input->post('luastanah_proyek'));
-            $harga_m_proyek = strip_tags($this->input->post('harga/m_proyek'));
+            $harga_m_proyek = strip_tags($this->input->post('harga_m_proyek'));
             $lebar_depan_proyek = strip_tags($this->input->post('lebar_depan_proyek'));
             $harga_total_proyek = strip_tags($this->input->post('harga_total_proyek'));
             $jarak_proyek = strip_tags($this->input->post('jarak_proyek'));
@@ -69,15 +71,17 @@ class Alternatif extends CI_Controller
             $nama_pengelola = strip_tags($this->input->post('nama_pengelola'));
             $nama_kantor = strip_tags($this->input->post('nama_kantor'));
             $nomor_hp = strip_tags($this->input->post('nomor_hp'));
+            $status_post = strip_tags($this->input->post('status_post'));
 
             $data = array(
+                'nama_proyek'     => $nama_proyek,
                 'judul_proyek'     => $judul_proyek,
                 'deskripsi_proyek'     => $deskripsi_proyek,
                 'sertifikat_proyek'    => $sertifikat_proyek,
                 'provinsi_proyek'     => $provinsi_proyek,
                 'kabupaten_proyek'    => $kabupaten_proyek,
                 'luastanah_proyek'     => $luastanah_proyek,
-                'harga/m_proyek'    => $harga_m_proyek,
+                'harga_m_proyek'    => $harga_m_proyek,
                 'lebar_depan_proyek'     => $lebar_depan_proyek,
                 'harga_total_proyek'    => $harga_total_proyek,
                 'jarak_proyek'     => $jarak_proyek,
@@ -85,6 +89,7 @@ class Alternatif extends CI_Controller
                 'nama_pengelola'     => $nama_pengelola,
                 'nama_kantor'    => $nama_kantor,
                 'nomor_hp'     => $nomor_hp,
+                'status_post' =>$status_post,
                 'fotoproyek1' => $fotoproyek[1],
                 'fotoproyek2' => $fotoproyek[2],
                 'fotoproyek3' => $fotoproyek[3],

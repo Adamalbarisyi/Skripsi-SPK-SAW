@@ -95,7 +95,7 @@
                         <div class="form-group mt-3">
                             <label>Harga/m</label>
                             <div>
-                                <input type="text" class="form-control input-bottom" name="harga/m_proyek" required placeholder="Input Harga/m" />
+                                <input type="text" class="form-control input-bottom" name="harga_m_proyek" required placeholder="Input Harga/m" />
                             </div>
                         </div>
 

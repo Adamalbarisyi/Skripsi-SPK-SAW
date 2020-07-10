@@ -50,7 +50,7 @@
                                         $provinsi_proyek = $i['provinsi_proyek'];
                                         $kabupaten_proyek = $i['kabupaten_proyek'];
                                         $luastanah_proyek = $i['luastanah_proyek'];
-                                        $harga_m_proyek = $i['harga/m_proyek'];
+                                        $harga_m_proyek = $i['harga_m_proyek'];
                                         $lebar_depan_proyek = $i['lebar_depan_proyek'];
                                         $harga_total_proyek = $i['harga_total_proyek'];
                                         $jarak_proyek = $i['jarak_proyek'];
@@ -120,7 +120,7 @@ foreach ($data->result_array() as $i) :
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -179,7 +179,6 @@ foreach ($data->result_array() as $i) :
                                     <li class="display-6">Luas Tanah</li>
                                     <li class="display-6">Lebar Depan</li>
                                     <li class="display-6">Harga/m</li>
-                                    <li class="display-6">Jarak dengan Pusat Kota</li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-12 w-50 pl-0">
@@ -191,7 +190,6 @@ foreach ($data->result_array() as $i) :
                                     <li class="display-6">: <b><?php echo $luastanah_proyek; ?> m<sup>2</sup></b></li>
                                     <li class="display-6">: <b><?php echo $lebar_depan_proyek; ?> m<sup>2</sup></b></li>
                                     <li class="display-6">: <b>Rp. <?php echo $harga_m_proyek; ?></b></li>
-                                    <li class="display-6">: <b><?php echo $jarak_proyek; ?> Km</b> </li>
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-md-6 col-xs-12 w-50 pr-0">
@@ -281,7 +279,7 @@ foreach ($data->result_array() as $i) :
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -406,7 +404,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Harga/m</label>
                                     <div>
-                                        <input type="text" class="form-control input-bottom" name="harga/m_proyek"
+                                        <input type="text" class="form-control input-bottom" name="harga_m_proyek"
                                             value="<?php echo $harga_m_proyek;?>" required
                                             placeholder="Input Harga/m" />
                                     </div>

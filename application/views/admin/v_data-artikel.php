@@ -178,7 +178,7 @@ foreach ($data->result_array() as $i) :
                     <div class="form-group">
                         <label for=isi_artikel>Ringkasan berita</label>
                         <div>
-                            <textarea id="elm1" name="isi_artikel" cols=”45″ rows=”5″>
+                            <textarea id="elm1" name="isi_artikel" >
                             <?php echo $this->typography->auto_typography($isi_artikel)?></textarea>
                         </div>
                     </div>

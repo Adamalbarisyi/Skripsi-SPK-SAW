@@ -25,10 +25,12 @@ $hal = $this->uri->segment(1);
     <!-- Vendor CSS Files -->
     <link href="<?php echo base_url('assets/frondend/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/frondend/vendor/animate.css/animate.min.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/frondend/vendor/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frondend/vendor/font-awesome/css/font-awesome.min.css') ?>"
+        rel="stylesheet">
     <link href="<?php echo base_url('assets/frondend/vendor/ionicons/css/ionicons.min.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/frondend/vendor/venobox/venobox.css') ?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/frondend/vendor/owl.carousel/assets/owl.carousel.min.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frondend/vendor/owl.carousel/assets/owl.carousel.min.css') ?>"
+        rel="stylesheet">
     <link href="<?php echo base_url('assets/frondend/vendor/slick/slick.css') ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/frondend/vendor/slick/slick-theme.css') ?>" rel="stylesheet">
 
@@ -39,7 +41,7 @@ $hal = $this->uri->segment(1);
 <!-- ======= Header ======= -->
 <header id="header">
 
-    <div id="topbar">
+    <!-- <div id="topbar">
         <div class="container">
             <div class="social-links">
                 <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
@@ -48,7 +50,7 @@ $hal = $this->uri->segment(1);
                 <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="container">
 
@@ -60,18 +62,16 @@ $hal = $this->uri->segment(1);
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li class="<?=($hal=='member/beranda')?'active':'';?>"><a href="<?php echo base_url('member/beranda') ?>">Beranda</a></li>
-                <li class="<?=($hal=='member/produk')?'active':'';?>"><a href="<?php echo base_url('member/produk') ?>">Produk</a></li>
-                <li class="<?=($hal=='member/artikel')?'active':'';?>"><a href="<?php echo base_url('member/artikel') ?>">Artikel</a></li>
-                <li class="drop-down"><a href="#">Tentang Kami</a>
-                    <ul>
-                        <li><a href="#">Info Sistem</a></li>
-                        <li><a href="#">Info Metode</a></li>
-                        <li><a href="#">Tentang Perusahaan</a></li>
-                    </ul>
+                <li class="<?=($hal=='member/beranda')?'active':'';?>"><a
+                        href="<?php echo base_url('member/beranda') ?>">Beranda</a></li>
+                <li class="<?=($hal=='member/produk')?'active':'';?>"><a
+                        href="<?php echo base_url('member/produk') ?>">Produk</a></li>
+                <li class="<?=($hal=='member/artikel')?'active':'';?>"><a
+                        href="<?php echo base_url('member/artikel') ?>">Artikel</a></li>
+                <li><a href="#" class=" waves-effect waves-light" data-toggle="modal" data-target="#tentang-kami">Tentang</a>
                 </li>
-                <li><a href="<?php echo base_url('login') ?>" class="btn btn-sm btn-danger mr-2">LOGIN</a></li>
-                <li><a href="<?php echo base_url('register') ?>" class="btn btn-sm btn-danger">Register</a></li>
+                <li><a href="<?php echo base_url('login') ?>" class="btn btn-sm btn-primary mr-2" style="color: white;">LOGIN</a></li>
+                <li><a href="<?php echo base_url('register') ?>" class="btn btn-sm btn-primary" style="color: white;">Register</a></li>
 
 
             </ul>
@@ -81,3 +81,37 @@ $hal = $this->uri->segment(1);
 </header><!-- #header -->
 
 
+<!--  Modal content for the above example -->
+<div id="tentang-kami"  class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myLargeModalLabel">Informasi Singkat</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <h4>Info Sistem</h4>
+                <p>Cras mattis consectetur purus sit amet fermentum.
+                    Cras justo odio, dapibus ac facilisis in,
+                    egestas eget quam. Morbi leo risus, porta ac
+                    consectetur ac, vestibulum at eros.</p>
+                    
+                    <h4>Info Metode </h4>
+                <p>Praesent commodo cursus magna, vel scelerisque
+                    nisl consectetur et. Vivamus sagittis lacus vel
+                    augue laoreet rutrum faucibus dolor auctor.</p>
+                    
+                    <h4>Info Perusahaan</h4>
+                <p>Aenean lacinia bibendum nulla sed consectetur.
+                    Praesent commodo cursus magna, vel scelerisque
+                    nisl consectetur et. Donec sed odio dui. Donec
+                    ullamcorper nulla non metus auctor
+                    fringilla.</p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>

@@ -133,13 +133,13 @@
                                 <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user"
                                     data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                                     aria-expanded="false">
-                                    <img src="<?php echo base_url('assets/backend/images/users/user-1.jpg')?>"
+                                    <img src="<?php echo base_url('assets/backend/images/pengelola.png')?>"
                                         alt="user" class="rounded-circle">
                                     <span class="p-1 text-white"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
                                     <div class="dropdown-item text-center pb-3 pt-3">
-                                        <img src="<?php echo base_url('assets/backend/images/users/user-1.jpg')?>"
+                                        <img src="<?php echo base_url('assets/backend/images/pengelola.png')?>"
                                             alt="user" class="rounded-circle pb-2 w-75">
                                         <p class="h6 mb-0"></p>
                                         <small></small>

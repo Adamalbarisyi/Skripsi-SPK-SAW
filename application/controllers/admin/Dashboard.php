@@ -10,6 +10,8 @@ class Dashboard extends CI_Controller
 		};
 
 		$this->load->model('m_alternatif');
+        $this->load->helper('text');
+        $this->load->helper('date');
 	}
 	function index()
 	{
@@ -58,13 +60,14 @@ class Dashboard extends CI_Controller
             }
 
 
+            $nama_proyek = strip_tags($this->input->post('nama_proyek'));
             $judul_proyek = strip_tags($this->input->post('judul_proyek'));
             $deskripsi_proyek = strip_tags($this->input->post('deskripsi_proyek'));
             $sertifikat_proyek = strip_tags($this->input->post('sertifikat_proyek'));
             $provinsi_proyek = strip_tags($this->input->post('provinsi_proyek'));
             $kabupaten_proyek = strip_tags($this->input->post('kabupaten_proyek'));
             $luastanah_proyek = strip_tags($this->input->post('luastanah_proyek'));
-            $harga_m_proyek = strip_tags($this->input->post('harga/m_proyek'));
+            $harga_m_proyek = strip_tags($this->input->post('harga_m_proyek'));
             $lebar_depan_proyek = strip_tags($this->input->post('lebar_depan_proyek'));
             $harga_total_proyek = strip_tags($this->input->post('harga_total_proyek'));
             $jarak_proyek = strip_tags($this->input->post('jarak_proyek'));
@@ -74,13 +77,14 @@ class Dashboard extends CI_Controller
             $nomor_hp = strip_tags($this->input->post('nomor_hp'));
 
             $data = array(
+                'nama_proyek'     => $nama_proyek,
                 'judul_proyek'     => $judul_proyek,
                 'deskripsi_proyek'     => $deskripsi_proyek,
                 'sertifikat_proyek'    => $sertifikat_proyek,
                 'provinsi_proyek'     => $provinsi_proyek,
                 'kabupaten_proyek'    => $kabupaten_proyek,
                 'luastanah_proyek'     => $luastanah_proyek,
-                'harga/m_proyek'    => $harga_m_proyek,
+                'harga_m_proyek'    => $harga_m_proyek,
                 'lebar_depan_proyek'     => $lebar_depan_proyek,
                 'harga_total_proyek'    => $harga_total_proyek,
                 'jarak_proyek'     => $jarak_proyek,

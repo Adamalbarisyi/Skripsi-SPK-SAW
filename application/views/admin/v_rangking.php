@@ -47,77 +47,7 @@
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active p-3" id="home" role="tabpanel">
-                                <div class="p-4 float-right">
-                                    <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-plus p-1 font-weight-bold"></i>
-                                        <span>Tambah Data</span>
-                                    </button>
-
-                                    <!-- sample modal content -->
-                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title mt-0" id="myModalLabel">Tambah Data Rangking
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <form class="" action="#">
-                                                        <div class="form-group">
-                                                            <label>Nama Proyek Tanah</label>
-                                                            <input type="text" class="form-control" placeholder="Masukkan nama proyek" />
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label>Kriteria</label>
-                                                            <div class="form-group">
-                                                                <select class="form-control">
-                                                                    <option class="disabled">Pilih Kriteria</option>
-                                                                    <option>Harga / 𝑚2</option>
-                                                                    <option>Luas Tanah</option>
-                                                                    <option>Harga Total</option>
-                                                                    <option>Jarak Kota</option>
-                                                                    <option>Fasilitas terdekat</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label>Nilai Kriteria</label>
-                                                            <div class="form-group">
-                                                                <select class="form-control">
-                                                                    <option class="disabled">Pilih nilai Kriteria
-                                                                    </option>
-                                                                    <option>0.1</option>
-                                                                    <option>0.2</option>
-                                                                    <option>0.3</option>
-                                                                    <option>0.4</option>
-                                                                    <option>0.5</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="float-right">
-                                                                <button type="button" data-dismiss="modal" class="btn btn-secondary waves-effect m-l-5">
-                                                                    Batal
-                                                                </button>
-
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light" id="sa-success">
-                                                                    Tambah
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div><!-- /.modal-content -->
-                                        </div><!-- /.modal-dialog -->
-                                    </div><!-- /.modal -->
-                                </div>
-
+                               
 
                                 <table class="table table-striped mb-0">
                                     <thead>

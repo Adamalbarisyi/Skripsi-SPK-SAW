@@ -33,7 +33,7 @@
                                 <thead class="text-center">
                                     <tr>
                                         <th>No</th>
-                                         <th>Judul Proyek</th>
+                                        <th>Judul Proyek</th>
                                         <th>Nama Kantor</th>
                                         <th>Status Iklan</th>
                                         <th>Aksi</th>
@@ -51,7 +51,7 @@
                                         $provinsi_proyek = $i['provinsi_proyek'];
                                         $kabupaten_proyek = $i['kabupaten_proyek'];
                                         $luastanah_proyek = $i['luastanah_proyek'];
-                                        $harga_m_proyek = $i['harga/m_proyek'];
+                                        $harga_m_proyek = $i['harga_m_proyek'];
                                         $lebar_depan_proyek = $i['lebar_depan_proyek'];
                                         $harga_total_proyek = $i['harga_total_proyek'];
                                         $jarak_proyek = $i['jarak_proyek'];
@@ -133,13 +133,14 @@
                                     $no = 1;
                                     foreach ($query->result_array() as $i) :
                                         $id_proyek = $i['id_proyek'];
+                                        $nama_proyek = $i['nama_proyek'];
                                         $judul_proyek = $i['judul_proyek'];
                                         $deskripsi_proyek = $i['deskripsi_proyek'];
                                         $sertifikat_proyek = $i['sertifikat_proyek'];
                                         $provinsi_proyek = $i['provinsi_proyek'];
                                         $kabupaten_proyek = $i['kabupaten_proyek'];
                                         $luastanah_proyek = $i['luastanah_proyek'];
-                                        $harga_m_proyek = $i['harga/m_proyek'];
+                                        $harga_m_proyek = $i['harga_m_proyek'];
                                         $lebar_depan_proyek = $i['lebar_depan_proyek'];
                                         $harga_total_proyek = $i['harga_total_proyek'];
                                         $jarak_proyek = $i['jarak_proyek'];
@@ -193,13 +194,14 @@
 <?php
 foreach ($data->result_array() as $i) :
     $id_proyek = $i['id_proyek'];
+    $nama_proyek = $i['nama_proyek'];
     $judul_proyek = $i['judul_proyek'];
     $deskripsi_proyek = $i['deskripsi_proyek'];
     $sertifikat_proyek = $i['sertifikat_proyek'];
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -231,6 +233,11 @@ foreach ($data->result_array() as $i) :
                     <div class="form-group">
                         <input type="hidden" name="id_proyek" value="<?php echo $id_proyek; ?>" />
 
+                    </div>
+
+
+                    <div class="form-group text-center">
+                        <h6 class="m-0"><?php echo $nama_proyek; ?></h6>
                     </div>
 
                     <div class="form-group text-center">
@@ -348,13 +355,14 @@ foreach ($data->result_array() as $i) :
 <?php
 foreach ($data->result_array() as $i) :
     $id_proyek = $i['id_proyek'];
+    $nama_proyek = $i['nama_proyek'];
     $judul_proyek = $i['judul_proyek'];
     $deskripsi_proyek = $i['deskripsi_proyek'];
     $sertifikat_proyek = $i['sertifikat_proyek'];
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -389,16 +397,22 @@ foreach ($data->result_array() as $i) :
 
                         <input type="hidden" name="id_kriteria" value="<?php echo $id_proyek;?>" />
                         <div class="form-group">
+                            <label>Nama Proyek</label>
+                            <input type="text" class="form-control input-bottom" name="nama_proyek"
+                                value="<?php echo $nama_proyek;?>" placeholder="Tuliskan Judul Proyek" />
+                        </div>
+
+                        <div class="form-group">
                             <label>Judul Proyek</label>
                             <input type="text" class="form-control input-bottom" name="judul_proyek"
-                                value="<?php echo $judul_proyek;?>" required placeholder="Tuliskan Judul Proyek" />
+                                value="<?php echo $judul_proyek;?>" placeholder="Tuliskan Judul Proyek" />
                         </div>
 
                         <div class="form-group">
                             <label>Deskripsi Proyek</label>
                             <div>
-                                <textarea id="elm1" name="deskripsi_proyek" cols=”45″ rows=”5″
-                                    required><?php echo $this->typography->auto_typography($deskripsi_proyek)?></textarea>
+                                <textarea id="elm1" name="deskripsi_proyek" cols=”45″
+                                    rows=”5″><?php echo $this->typography->auto_typography($deskripsi_proyek)?></textarea>
                             </div>
                         </div>
 
@@ -408,7 +422,7 @@ foreach ($data->result_array() as $i) :
                                     <label>Sertifikat</label>
                                     <div>
                                         <input type="text" class="form-control input-bottom" name="sertifikat_proyek"
-                                            value="<?php echo $sertifikat_proyek;?>" required
+                                            value="<?php echo $sertifikat_proyek;?>"
                                             placeholder="Input Jenis Sertifikat" />
                                     </div>
                                 </div>
@@ -418,7 +432,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Provinsi</label>
                                     <div class="form-group">
-                                        <select class="form-control" name="provinsi_proyek" required>
+                                        <select class="form-control" name="provinsi_proyek">
                                             <option value="">-PILIH-</option>
                                             <?php if($provinsi_proyek=='Yogyakarta'):?>
                                             <option value="Yogyakarta" selected>Yogyakarta</option>
@@ -433,7 +447,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Kabupaten</label>
                                     <div class="form-group">
-                                        <select class="form-control" name="kabupaten_proyek" required>
+                                        <select class="form-control" name="kabupaten_proyek">
                                             <option value="">-PILIH-</option>
                                             <option <?php if( $kabupaten_proyek=='Bantul'){echo "selected"; } ?>
                                                 value='Bantul'>Bantul</option>
@@ -463,8 +477,7 @@ foreach ($data->result_array() as $i) :
                                     <label>Luas Tanah <b>(m<sup>2</sup>)</b> </label>
                                     <div>
                                         <input type="text" class="form-control input-bottom" name="luastanah_proyek"
-                                            value="<?php echo $luastanah_proyek;?>" required
-                                            placeholder="Input Luas Tanah" />
+                                            value="<?php echo $luastanah_proyek;?>" placeholder="Input Luas Tanah" />
                                     </div>
                                 </div>
                             </div>
@@ -472,9 +485,8 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Harga/m</label>
                                     <div>
-                                        <input type="text" class="form-control input-bottom" name="harga/m_proyek"
-                                            value="<?php echo $harga_m_proyek;?>" required
-                                            placeholder="Input Harga/m" />
+                                        <input type="text" class="form-control input-bottom" name="harga_m_proyek"
+                                            value="<?php echo $harga_m_proyek;?>" placeholder="Input Harga/m" />
                                     </div>
                                 </div>
                             </div>
@@ -483,8 +495,7 @@ foreach ($data->result_array() as $i) :
                                     <label>Lebar Depan Tanah <b>(m<sup>2</sup>)</b></label>
                                     <div>
                                         <input type="text" class="form-control input-bottom" name="lebar_depan_proyek"
-                                            value="<?php echo $lebar_depan_proyek;?>" required
-                                            placeholder="Input Lebar Tanah" />
+                                            value="<?php echo $lebar_depan_proyek;?>" placeholder="Input Lebar Tanah" />
                                     </div>
                                 </div>
                             </div>
@@ -497,8 +508,7 @@ foreach ($data->result_array() as $i) :
                                     <label>Harga Total</label>
                                     <div>
                                         <input type="text" class="form-control input-bottom" name="harga_total_proyek"
-                                            value="<?php echo $harga_total_proyek;?>" required
-                                            placeholder="Input Harga Total" />
+                                            value="<?php echo $harga_total_proyek;?>" placeholder="Input Harga Total" />
                                     </div>
                                 </div>
                             </div>
@@ -507,8 +517,7 @@ foreach ($data->result_array() as $i) :
                                     <label>Jarak dengan pusat kota (Km)</label>
                                     <div>
                                         <input type="text" class="form-control input-bottom" name="jarak_proyek"
-                                            value="<?php echo $jarak_proyek;?>" required
-                                            placeholder="Input Jarak (Km)" />
+                                            value="<?php echo $jarak_proyek;?>" placeholder="Input Jarak (Km)" />
                                     </div>
                                 </div>
                             </div>
@@ -516,7 +525,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Fasilitas lokasi terdekat</label>
                                     <div class="form-group">
-                                        <select class="form-control" name="fasilitas_proyek" required>
+                                        <select class="form-control" name="fasilitas_proyek">
                                             <option value="">-PILIH-</option>
                                             <option <?php if( $fasilitas_proyek=='1'){echo "selected"; } ?> value='1'>1
                                             </option>
@@ -545,8 +554,7 @@ foreach ($data->result_array() as $i) :
                                     <label>Nama Pengelola</label>
                                     <div>
                                         <input type="text" class="form-control input-bottom" name="nama_pengelola"
-                                            value="<?php echo $nama_pengelola;?>" required
-                                            placeholder="Input nama pengelola" />
+                                            value="<?php echo $nama_pengelola;?>" placeholder="Input nama pengelola" />
                                     </div>
                                 </div>
                             </div>
@@ -554,7 +562,7 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Nama Kantor</label>
                                     <div class="form-group">
-                                        <select class="form-control" name="nama_kantor" required>
+                                        <select class="form-control" name="nama_kantor">
                                             <option value="">-PILIH-</option>
                                             <option <?php if( $nama_kantor=='Orange Property'){echo "selected"; } ?>
                                                 value='Orange Property'>Orange Property</option>
@@ -584,8 +592,8 @@ foreach ($data->result_array() as $i) :
                                 <div class="form-group mt-3">
                                     <label>Nomor Hp/WA</label>
                                     <div>
-                                        <input type="number" class="form-control input-bottom" name="nomor_hp" value="<?php echo $nomor_hp;?>" required
-                                            placeholder="Input No Hp/WA" />
+                                        <input type="number" class="form-control input-bottom" name="nomor_hp"
+                                            value="<?php echo $nomor_hp;?>" placeholder="Input No Hp/WA" />
                                     </div>
                                 </div>
                             </div>
@@ -717,13 +725,14 @@ foreach ($data->result_array() as $i) :
 <?php
 foreach ($query->result_array() as $i) :
     $id_proyek = $i['id_proyek'];
+    $nama_proyek = $i['nama_proyek'];
     $judul_proyek = $i['judul_proyek'];
     $deskripsi_proyek = $i['deskripsi_proyek'];
     $sertifikat_proyek = $i['sertifikat_proyek'];
     $provinsi_proyek = $i['provinsi_proyek'];
     $kabupaten_proyek = $i['kabupaten_proyek'];
     $luastanah_proyek = $i['luastanah_proyek'];
-    $harga_m_proyek = $i['harga/m_proyek'];
+    $harga_m_proyek = $i['harga_m_proyek'];
     $lebar_depan_proyek = $i['lebar_depan_proyek'];
     $harga_total_proyek = $i['harga_total_proyek'];
     $jarak_proyek = $i['jarak_proyek'];
@@ -757,6 +766,10 @@ foreach ($query->result_array() as $i) :
 
                     </div>
 
+                    <div class="form-group text-center">
+                        <h6 class="m-0"><?php echo $nama_proyek; ?></h6>
+                    </div>
+                    
                     <div class="form-group text-center">
                         <h6 class="m-0"><?php echo $judul_proyek; ?></h6>
                     </div>

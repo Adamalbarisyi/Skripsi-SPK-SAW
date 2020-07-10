@@ -41,8 +41,9 @@
                                         Data</span></button>
                             </div>
 
-
-                            <table class="table table-striped mb-0">
+                            <div class="table-responsive">
+                            <table id="datatable" class="table table-bordered dt-responsive  text-justify"
+                                style="width:100%">
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>
@@ -95,6 +96,7 @@
                                     <?php endforeach;?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>

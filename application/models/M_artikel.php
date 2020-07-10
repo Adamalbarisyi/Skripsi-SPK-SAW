@@ -8,6 +8,10 @@ class M_artikel extends CI_Model
         return $result;
     }
     
+    public function  artikel_detail($id){
+        return $this->db->get_where('artikel', ['id_artikel' => $id]);
+    }
+    
     function get_artikel_page() //tampil random artikel page
     {
         $this->db->order_by('id_artikel', 'RANDOM');

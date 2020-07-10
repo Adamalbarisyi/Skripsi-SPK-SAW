@@ -5,9 +5,9 @@
             <h2 class="mb-0">Sistem Pendukung Keputusan <br> <span>Menggunakan Metode Simple Weighting</span><br>
                 <h3 class="mt-0">Pada Pembelian Tanah Kavling di Yogyakarta </h3>
             </h2>
-            <div>
+            <!-- <div>
                 <a href="#about" class="btn-get-started scrollto">Pilih Rekomendasi</a>
-            </div>
+            </div> -->
         </div>
     </div>
 </section><!-- End Info -->
@@ -29,13 +29,14 @@
                 <?php
                 foreach ($data->result_array() as $i) :
                     $id_proyek = $i['id_proyek'];
+                    $nama_proyek = $i['nama_proyek'];
                     $judul_proyek = $i['judul_proyek'];
                     $deskripsi_proyek = $i['deskripsi_proyek'];
                     $sertifikat_proyek = $i['sertifikat_proyek'];
                     $provinsi_proyek = $i['provinsi_proyek'];
                     $kabupaten_proyek = $i['kabupaten_proyek'];
                     $luastanah_proyek = $i['luastanah_proyek'];
-                    $harga_m_proyek = $i['harga/m_proyek'];
+                    $harga_m_proyek = $i['harga_m_proyek'];
                     $lebar_depan_proyek = $i['lebar_depan_proyek'];
                     $harga_total_proyek = $i['harga_total_proyek'];
                     $jarak_proyek = $i['jarak_proyek'];
@@ -99,25 +100,22 @@
 
             <ul id="artikel-list" class="wow fadeInUp">
                 <?php
-                                    foreach ($query->result_array() as $i) :
-                                        $id_artikel = $i['id_artikel'];
-                                        $judul_artikel = $i['judul_artikel'];
-                                        $isi_artikel = $i['isi_artikel'];
-                                        $foto_artikel = $i['foto_artikel'];
+                                    foreach ($query->result() as $i) 
+                                     {
                                     ?>
                 <li>
                     <a data-toggle="collapse" class="collapsed alink"
-                        href="#artikel<?php echo $id_artikel; ?>"><?php echo $judul_artikel; ?><i
+                        href="#artikel<?php echo $i->id_artikel;?>"><?php echo $i->judul_artikel; ?><i
                             class="ion-android-remove"></i></a>
-                    <div id="artikel<?php echo $id_artikel; ?>" class="collapse" data-parent="#artikel-list">
+                    <div id="artikel<?php echo $i->id_artikel;?>" class="collapse" data-parent="#artikel-list">
                         <p>
-                        <?php echo word_limiter($isi_artikel,25); ?>
-                            <a href="<?php echo base_url() . 'member/artikel/detail_artikel'?>"> Selengkapnya &rarr;</a>
+                        <?php echo word_limiter($i->isi_artikel,25); ?>
+                            <a href="<?php echo base_url() . 'member/artikel/detail_artikel/'.$i->id_artikel; ?>"> Selengkapnya &rarr;</a>
                         </p>
                     </div>
                 </li>
 
-                <?php endforeach; ?>
+                                     <?php } ?>
 
             </ul>
 
